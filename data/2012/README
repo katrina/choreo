@@ -1,0 +1,19 @@
+Files are named as xxx.dat, where xxx = seconds since epoch during the
+time when the measurements were started.
+
+Each file has entries of the form:
+
+src dst path_length throughput
+
+path_length was measured via traceroute.
+throughput was measured via netperf.
+
+The directories correspond to the availability zone of EC2 that was
+measured.
+
+To create fig 1 from the paper, run:
+> python make_2012_cdf.py
+
+This script requires gnuplot and epstopdf.  It does nothing more than
+create CDFs of the data.  In fact, it ignores the src, dst, and
+path_length fields of every file.

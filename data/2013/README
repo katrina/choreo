@@ -1,0 +1,21 @@
+There are two types of files here:
+
+temporal-xxx.dat
+topo-xxx.dat
+
+In both cases, xxx = seconds since epoch when measurements were
+started.  The first line of both files is of the form
+    instance_type=<EC2 instance type>
+
+temporal*.dat files contain lines of the form:
+    src dst time_of_measurement tput
+
+topo*.dat files contain lines of the form
+    src dst path_length tput
+
+In both cases, throughput was measured via netperf.  path_length was
+measured via traceroute.
+
+The make_2013_*.py graphs will make the various CDFs in the paper.
+They require gnuplot and epstopdf to make the actual graphs, but you
+can comment that out if you'd just like to see the CDFs.
